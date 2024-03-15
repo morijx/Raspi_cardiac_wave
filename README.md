@@ -7,6 +7,9 @@ Contained are the 3 parts. First the GUI for video and PPG recording on the rasp
 ### Folder Structure
 In the Main_GUI_Pi folder all files for the Raspberry Pi are stored. The Analysis_GUI is also usable on the PC since it does not contain the Video and PPG recording part but only the analysis.
 
+## GUI
+![Images](Analysis_GUI.png)
+
 ## Package Requirements Raspberry Pi
 - absl-py==2.0.0
 - Adafruit-Blinka==8.25.0
