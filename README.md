@@ -355,5 +355,7 @@ Contained are the 3 parts. First the GUI for video and PPG recording on the rasp
 - zipp==3.17.0
 
 
+## Configuration
 
+The code for the Raspberry Pi was tested on a Pi4 and Pi5. Other than that the code was run on a MacBook Pro M1.
 
