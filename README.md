@@ -364,27 +364,24 @@ The code for the Raspberry Pi was tested on a Pi4 and Pi5. Other than that the c
 
 ## Structure
 ```bash
-HeartRateAnalyzer/
+Raspi_cardiac_wave/
 │
-├── app/
-│   ├── __init__.py
-│   └── main.py
 │
-├── analysis/
-│   ├── __init__.py
+├── Main_GUI_Pi/
+│   ├── Analysis_GUI.py
 │   ├── BVP_Analysis.py
-│   └── Pipeline_analysis.py
+│   ├── Main_GUI.py
+│   ├── heartrate_monitor.py
+│   ├── hrcalc.py
+│   └── max30102.py
 │
-├── gui/
-│   ├── __init__.py
-│   └── heart_rate_analyzer_ui.py
 │
 ├── images/
 │   └── example_screenshot.png
 │
 ├── README.md
 │
-└── requirements.txt
+└── Requirements
 ```
 ## License - MIT License.
 
