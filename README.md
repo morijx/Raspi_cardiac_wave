@@ -375,6 +375,10 @@ Raspi_cardiac_wave/
 │   ├── hrcalc.py
 │   └── max30102.py
 │
+├── Video Success/
+│   ├── Classification.ipynb
+│   ├── Data_Cutting.ipynb
+│   └── Feature_generation-ipynb
 │
 ├── images/
 │   └── example_screenshot.png
