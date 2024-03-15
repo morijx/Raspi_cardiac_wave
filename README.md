@@ -359,3 +359,16 @@ Contained are the 3 parts. First the GUI for video and PPG recording on the rasp
 
 The code for the Raspberry Pi was tested on a Pi4 and Pi5. Other than that the code was run on a MacBook Pro M1.
 
+
+## License - MIT License.
+
+### Contact
+If you have any questions, please feel free to contact morij@ethz.ch or moe.elgendi@hest.ethz.ch !
+
+
+
+
+
+
+
+
