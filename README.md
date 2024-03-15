@@ -380,8 +380,12 @@ Raspi_cardiac_wave/
 │   ├── Data_Cutting.ipynb
 │   └── Feature_generation-ipynb
 │
-├── images/
-│   └── example_screenshot.png
+├── Images/
+│   ├── Analysis_GUI.PNG
+│   ├── Case Assembled.jpg
+│   ├── Feature_importance_all.png
+│   ├── N5_DTW_result.png
+│   └── fft_plot.png
 │
 ├── README.md
 │
