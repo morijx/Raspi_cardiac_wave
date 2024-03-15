@@ -10,6 +10,9 @@ In the Main_GUI_Pi folder all files for the Raspberry Pi are stored. The Analysi
 ## GUI
 ![image](Images/Analysis_GUI.png)
 
+## Raspberry Pi
+![image](Images/Case Assembled.jpg)
+
 ## Package Requirements Raspberry Pi
 - absl-py==2.0.0
 - Adafruit-Blinka==8.25.0
