@@ -362,7 +362,30 @@ In the Main_GUI_Pi folder all files for the Raspberry Pi are stored. The Analysi
 
 The code for the Raspberry Pi was tested on a Pi4 and Pi5. Other than that the code was run on a MacBook Pro M1.
 
-
+## Structure
+```bash
+HeartRateAnalyzer/
+│
+├── app/
+│   ├── __init__.py
+│   └── main.py
+│
+├── analysis/
+│   ├── __init__.py
+│   ├── BVP_Analysis.py
+│   └── Pipeline_analysis.py
+│
+├── gui/
+│   ├── __init__.py
+│   └── heart_rate_analyzer_ui.py
+│
+├── images/
+│   └── example_screenshot.png
+│
+├── README.md
+│
+└── requirements.txt
+```
 ## License - MIT License.
 
 ### Contact
