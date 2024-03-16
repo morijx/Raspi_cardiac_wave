@@ -5,6 +5,9 @@ The BVP_Analysis file contains the Pipeline form pyVHR with slight changes to re
 
 ## Use
 To use the GUI open Main_GUI.py on the Raspberry Pi. Make sure all the code is in the same folder as the Main_GUI.py
+If any problems occure, make sure the GPIO pins used are correct and that the choosen camera mode is available.
+
+
 To analyse data on a Computer open the Analysis_GUI.py with all the other files in the same folder.
 
 ## Results
