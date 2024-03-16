@@ -92,8 +92,6 @@ def visualize_BVPs(BVPs,timestamps, overlap_ratio=1-(0.2)):
 
     window_duration = BVPs[0].shape[1]  # Assuming 30 samples per second
 
-    #print(window_duration)
-    #print(overlap_ratio)
 
     overlap_duration = int(window_duration * overlap_ratio)
     total_frames = (len(BVPs) - 1) * (window_duration - overlap_duration) + window_duration
@@ -106,10 +104,6 @@ def visualize_BVPs(BVPs,timestamps, overlap_ratio=1-(0.2)):
         end_frame = start_frame + window_duration
 
         for i, e in enumerate(bvp):
-            # Subtract the mean of the BVP window
-            #e -= np.mean(e)
-            #e = butter_lowpass_filter(e, cutoff_frequency=5, sampling_rate=30)
-            #e = detrend(e, type='constant')
 
             # Ensure the size of the assigned slice matches the size of the BVP signal
             slice_size = min(end_frame - start_frame, len(e))
@@ -129,8 +123,7 @@ def visualize_BVPs(BVPs,timestamps, overlap_ratio=1-(0.2)):
 
     timestamps = timestamps[:len(mean_signal)]
     mean_signal = mean_signal[:len(timestamps)]
-    #print(len(mean_signal))
-    #print(len(timestamps))
+
 
     return mean_signal, timestamps
 
@@ -209,12 +202,6 @@ def PPG_data(csv_file):
     Y01 = Y1_filtered
     Y02 = Y2_filtered
 
-    #y1max = np.max(Y1_filtered)-np.max(Y1_filtered)/1.5
-    #y2max = np.max(Y2_filtered)-np.max(Y2_filtered)/1.5
-
-    #y1max= 0
-    #y2max=0
-
     y1max = np.mean(Y1_filtered)
     y2max = np.mean(Y2_filtered)
 
@@ -224,16 +211,6 @@ def PPG_data(csv_file):
     peaks1, _ = find_peaks(Y1_filtered, height=y1max, distance=min_peak_distance, prominence=min_peak_prominence)
     peaks2, _ = find_peaks(Y2_filtered, height=y2max, distance=min_peak_distance, prominence=min_peak_prominence)
 
-    """# Update min_peak_distance based on the distances between consecutive peaks
-    def update_min_peak_distance(peaks, last_peak_distance):
-        if len(peaks) >= 2:
-            new_min_peak_distance = max(min_peak_distance, last_peak_distance / 2)
-            return new_min_peak_distance
-        else:
-            return min_peak_distance
-
-    min_peak_distance = update_min_peak_distance(peaks1, np.diff(peaks1)[-1])
-    min_peak_distance = update_min_peak_distance(peaks2, np.diff(peaks2)[-1])"""
 
     # Find peaks again with the updated min_peak_distance and filter based on the condition
     def filter_peaks(peaks, Y_filtered, y_max, min_distance_percentage=0.5):
@@ -254,9 +231,6 @@ def PPG_data(csv_file):
             new_peaks.append(peaks[-1])
 
         return np.array(new_peaks)
-
-    #peaks1 = filter_peaks(peaks1, Y1_filtered, y1max, min_distance_percentage=0.5)
-    #peaks2 = filter_peaks(peaks2, Y2_filtered, y2max, min_distance_percentage=0.5)
 
 
     # Calculate time differences between consecutive peaks for both signals
@@ -286,15 +260,9 @@ def BVP_data(calculated_frame_rate, mean_signal, timestamps):
 
     video_length = timestamps[-1]
 
-
-    """x_values_mean = np.linspace(0, video_length, len(mean_signal))
-    x_values_mean = x_values_mean[start_cutoff:]
-    x_values_mean = x_values_mean- x_values_mean[0]"""
-
     x_values_mean= timestamps[start_cutoff:]
 
     def cutof(data):
-        # Sample data array
 
         # Define the threshold value
         threshold = -3000
@@ -463,8 +431,6 @@ def DTW_analysis(normalized_time_series_yrppg, normalized_time_series_yir,normal
     #dtwvis.plot_warping(low_freq_data_aligned,high_freq_data_aligned, path, filename = 'test.png')
 
     dist = dtw.distance(low_freq_data_aligned,high_freq_data_aligned)
-    #print('Normalised Distance RED')
-    #print(dist)
     return path_norm, dist
 
 
