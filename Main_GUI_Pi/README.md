@@ -10,6 +10,7 @@ In the code the DTW is analysed and the distance calculated.However, a compariso
 Both waves are then transformed into the frequency range. This transformation is used to determine the pulse. 
 ![image](../Images/fft_plot.png)
 
+The GUI is shown in the main folders README.
 ## Structure
 Here all functions are listed.
 
