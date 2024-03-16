@@ -418,7 +418,7 @@ This work was carried out at the BMHT at ETH Zurich.
 If you have any questions, please feel free to contact morij@ethz.ch or moe.elgendi@hest.ethz.ch !
 
 
-###Disclosure: 
+### Disclosure 
 This project description was generated with assistance from an AI language model. While the content has been reviewed to ensure accuracy and coherence, it should be noted that AI technology was employed in its composition. Any potential errors or discrepancies are the responsibility of the user to verify.
 
 
