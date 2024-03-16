@@ -14,7 +14,7 @@ In the subsequent phase, a comparative analysis is conducted between the rPPG an
 
 In the final part of the project, a Random Forest Classifier is implemented to predict the reliability of obtaining accurate pulse data from a given video. Various features extracted from the video data, such as motion artifacts, lighting conditions, and movement, are utilised as input to the classifier. By training the classifier on a dataset containing labeled examples of successful and unsuccessful pulse data extraction, the system can predict the likelihood of obtaining accurate pulse readings from new video inputs.
 
-Overall, this project provides insights into the feasibility of using rPPG techniques as a non-contact alternative to traditional PPG measurements, with the added capability of predicting the success of pulse data extraction from video recordings using machine learning algorithms.
+Overall, this project provides insights into the feasibility of using rPPG techniques as a non-contact alternative to traditional PPG measurements on mobile platforms, with the added capability of predicting the success of pulse data extraction from video recordings using machine learning algorithms.
 
 ### Folder Structure
 In the Main_GUI_Pi folder all files for the Raspberry Pi are stored. The Analysis_GUI is also usable on the PC since it does not contain the Video and PPG recording part but only the analysis. In the Video Success folder the code for feature extraction from the video is presented. Also the code used to build the Random Forest classifier.
