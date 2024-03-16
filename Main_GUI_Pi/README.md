@@ -3,6 +3,11 @@
 The files heartrate_monitor, hrcalc and max30102 were not changed and just taken as is form the Kiosk at BMHT ETH Zürich.
 The BVP_Analysis file contains the Pipeline form pyVHR with slight changes to return the BVP for further analysis.
 
+## Results
+
+![image](../Images/N5_DTW_result.png)
+![image](../Images/fft_plot.png)
+
 ## Structure
 Here all functions are listed.
 
