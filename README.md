@@ -4,6 +4,18 @@ Mobile Platform to detect cardiac waveform remotely
 ## Summary
 Contained are the 3 parts. First the GUI for video and PPG recording on the raspberry pi with data analysis. Second a GUI for analysing the data on the MacBook. Thrid a Notebook to generate teh features and the code to train and test a random forest classifier to predict the Video success.
 
+## Description:
+
+This project aims to leverage the capabilities of a Raspberry Pi 4 along with a camera and a pulse oximeter to compare the reliability of remote Photoplethysmography (rPPG) with traditional Pulse Oximetry (PPG). The Raspberry Pi 4, equipped with a camera module, captures facial video data, enabling the extraction of subtle changes in skin color associated with blood perfusion. Simultaneously, a pulse oximeter records the conventional PPG signal for comparison.
+
+The first phase involves processing the captured video data to extract rPPG signals using pyVHR.
+
+In the subsequent phase, a comparative analysis is conducted between the rPPG and PPG signals to evaluate their accuracy and consistency in measuring physiological parameters, such as heart rate and oxygen saturation levels.
+
+In the final part of the project, a Random Forest Classifier is implemented to predict the reliability of obtaining accurate pulse data from a given video. Various features extracted from the video data, such as motion artifacts, lighting conditions, and movement, are utilised as input to the classifier. By training the classifier on a dataset containing labeled examples of successful and unsuccessful pulse data extraction, the system can predict the likelihood of obtaining accurate pulse readings from new video inputs.
+
+Overall, this project provides insights into the feasibility of using rPPG techniques as a non-contact alternative to traditional PPG measurements, with the added capability of predicting the success of pulse data extraction from video recordings using machine learning algorithms.
+
 ### Folder Structure
 In the Main_GUI_Pi folder all files for the Raspberry Pi are stored. The Analysis_GUI is also usable on the PC since it does not contain the Video and PPG recording part but only the analysis. In the Video Success folder the code for feature extraction from the video is presented. Also the code used to build the Random Forest classifier.
 
