@@ -17,5 +17,5 @@ features, likely facial landmarks, across consecutive frames of the video.
 frame, typically represented in terms of hue, saturation, and value.
 
 
-![image](Images/Feature_importance_all.png)
+![image](../Images/Feature_importance_all.png)
 
