@@ -21,6 +21,8 @@ frame, typically represented in terms of hue, saturation, and value.
 
 
 ## Results
+The following table shows the accuracy scored for different Random states. The test score is 20% of the training data (85 Videos) where the validation score is a seperate set of 20 videos.
+
 
 | Features               | Random state 5 | Random state 42 | Random state 111 | Random state 0 |
 |------------------------|----------------|-----------------|------------------|----------------|
