@@ -4,7 +4,7 @@ The files heartrate_monitor, hrcalc and max30102 were not changed and just taken
 THe BVP_Analysis file contains the Pipeline form pyVHR with slight changes to return the BVP for further analysis.
 
 ## Structure
-Here all classes and functions are listed.
+Here all functions are listed.
 
 ```bash
 Main_GUI_Pi/
