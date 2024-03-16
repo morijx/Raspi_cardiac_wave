@@ -3,6 +3,10 @@
 The files heartrate_monitor, hrcalc and max30102 were not changed and just taken as is form the Kiosk at BMHT ETH Zürich.
 The BVP_Analysis file contains the Pipeline form pyVHR with slight changes to return the BVP for further analysis.
 
+## Use
+To use the GUI open Main_GUI.py on the Raspberry Pi. Make sure all the code is in the same folder as the Main_GUI.py
+To analyse data on a Computer open the Analysis_GUI.py with all the other files in the same folder.
+
 ## Results
 In the code the DTW is analysed and the distance calculated.However, a comparison of the distances with other values from the literature is not expedient.
 ![image](../Images/N5_DTW_result.png)
