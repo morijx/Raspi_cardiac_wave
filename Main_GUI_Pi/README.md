@@ -4,11 +4,9 @@ The files heartrate_monitor, hrcalc and max30102 were not changed and just taken
 The BVP_Analysis file contains the Pipeline form pyVHR with slight changes to return the BVP for further analysis.
 
 ## Use
-To use the GUI open Main_GUI.py on the Raspberry Pi. Make sure all the code is in the same folder as the Main_GUI.py
-If any problems occure, make sure the GPIO pins used are correct and that the choosen camera mode is available.
+To utilize the graphical user interface (GUI), execute Main_GUI.py on the Raspberry Pi. Ensure that all the required code files are located in the same directory as Main_GUI.py. If encountering any issues, double-check the GPIO pin configurations and verify that the selected camera mode is supported.
 
-
-To analyse data on a Computer open the Analysis_GUI.py with all the other files in the same folder.
+For data analysis on a computer, launch Analysis_GUI.py along with the accompanying files stored in the same directory.
 
 ## Results
 In the code the DTW is analysed and the distance calculated.However, a comparison of the distances with other values from the literature is not expedient.
