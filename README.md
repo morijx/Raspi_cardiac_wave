@@ -162,7 +162,7 @@ The GUI was realised with pyQT5.
 - PySocks==1.7.1
 - python-apt==2.6.0
 - python-dateutil==2.8
-- - python-dateutil==2.8.2
+- python-dateutil==2.8.2
 - python-dotenv==0.21.0
 - python-prctl==1.8.1
 - pythran==0.11.0
