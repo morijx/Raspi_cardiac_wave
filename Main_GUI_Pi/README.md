@@ -17,7 +17,6 @@ Both waves are then transformed into the frequency range. This transformation is
 
 The GUI is shown in the main folders README.
 ## Structure
-Here all functions are listed.
 
 ```bash
 Main_GUI_Pi/
