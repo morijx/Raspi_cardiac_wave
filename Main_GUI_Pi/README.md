@@ -4,8 +4,10 @@ The files heartrate_monitor, hrcalc and max30102 were not changed and just taken
 The BVP_Analysis file contains the Pipeline form pyVHR with slight changes to return the BVP for further analysis.
 
 ## Results
-
+In the code the DTW is analysed and the distance calculated.
 ![image](../Images/N5_DTW_result.png)
+
+Both waves are then transformed into the frequency range. This transformation is used to determine the pulse. 
 ![image](../Images/fft_plot.png)
 
 ## Structure
