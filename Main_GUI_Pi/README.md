@@ -1,7 +1,7 @@
 # MAIN_GUI_PI
 
 The files heartrate_monitor, hrcalc and max30102 were not changed and just taken as is form the Kiosk at BMHT ETH Zürich.
-THe BVP_Analysis file contains the Pipeline form pyVHR with slight changes to return the BVP for further analysis.
+The BVP_Analysis file contains the Pipeline form pyVHR with slight changes to return the BVP for further analysis.
 
 ## Structure
 Here all functions are listed.
