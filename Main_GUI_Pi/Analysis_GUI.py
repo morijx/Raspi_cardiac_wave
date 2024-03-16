@@ -62,21 +62,6 @@ class HeartRateAnalyzer(QWidget):
 
         self.setLayout(layout)
 
-    """def analyze(self):
-        # Your existing code for analysis here
-        # For demonstration, let's plot a simple sinusoidal curve
-        x = np.linspace(0, 2 * np.pi, 100)
-        y = np.sin(x)
-
-        fig, ax = plt.subplots()
-        ax.plot(x, y)
-        ax.set_xlabel('Time')
-        ax.set_ylabel('Amplitude')
-        ax.set_title('Sample Plot')
-        
-        # Convert plot to QPixmap and display
-        pixmap = self.fig_to_pixmap(fig)
-        self.plot_label.setPixmap(pixmap)"""
 
 
     def analyze(self):
