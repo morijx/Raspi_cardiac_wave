@@ -60,11 +60,6 @@ class MyGUI(QWidget):
         self.edit_recordingtime.setAlignment(Qt.AlignCenter)
         self.edit_recordingtime.setText("35")
 
-        # Create combo boxes for method and approach selection
-        #self.combo_method = QComboBox(self)
-        #self.combo_method.addItems(["cpu_LGI", "cpu_GREEN", "cpu_PCA", "cpu_CHROM", "cpu_POS", "cpu_ICA", "cpu_OMIT", "cpu_PBV"])  # Add more methods if needed
-        #self.combo_method.setCurrentIndex(0)  # Set the default method
-
         self.figure = plt.figure()
         self.canvas = FigureCanvas(self.figure)
         
