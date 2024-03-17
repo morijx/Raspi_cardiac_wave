@@ -27,7 +27,8 @@ The GUI was realised with pyQT5.
 ![image](Images/CaseAssembled.jpg)
 
 ## Package Requirements Raspberry Pi
-The following list displays the installed packages required for the system to function properly. Please note that while all listed packages are installed, not all of them may be necessary for the operation of the system.
+The following list displays the installed packages required for the system to function properly. Please note that while all listed packages are installed, not all of them may be necessary for the operation of the system. Additionally, the displayed versions do work with each other, although they may not be optimized for maximum performance.
+
 - absl-py==2.0.0
 - Adafruit-Blinka==8.25.0
 - adafruit-circuitpython-busdevice==5.2.6
