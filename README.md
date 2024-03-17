@@ -407,6 +407,11 @@ Raspi_cardiac_wave/
 │   ├── N5_DTW_result.png
 │   └── fft_plot.png
 │
+├── Data/
+│   ├── Model
+│   ├── Training
+│   └── Validation
+│
 ├── README.md
 │
 └── Requirements
