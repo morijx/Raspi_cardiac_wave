@@ -35,7 +35,7 @@ The following table shows the accuracy scored for different Random states. The t
 | Frame brightness test score  | 0.88     | 0.76            | 0.71             | 0.65           |
 | Frame brightness validation  | 0.81    | 0.81            | 0.82             | 0.82           |
 
-
+Depending on the random state the feature important changes. You can compare the importance plot for state 5 and 0 yourshelf with the code.
 
 
 
