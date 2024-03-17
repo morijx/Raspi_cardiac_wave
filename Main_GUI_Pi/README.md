@@ -15,6 +15,8 @@ In the code the DTW is analysed and the distance calculated.However, a compariso
 Both waves are then transformed into the frequency range. This transformation is used to determine the pulse. 
 ![image](../Images/fft_plot.png)
 
+To compile a 35s (1920x1080) video on the Pi4 took about 5min. Using the Pi5 cut the computational time in half quite exactly. Reducing the video quality also improved the computational time, while at the same time the results were as good as before regarding the DTW. 
+
 The GUI is shown in the main folders README.
 ## Structure
 
