@@ -76,3 +76,4 @@ Main_GUI_Pi/
           └── read_sequential
 
 ```
+Due to privacy reasons, no video data or PPG data utilized in this work is available.
