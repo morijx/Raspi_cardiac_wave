@@ -19,6 +19,8 @@ Overall, this project provides insights into the feasibility of using rPPG techn
 ### Folder Structure
 In the Main_GUI_Pi folder all files for the Raspberry Pi are stored. The Analysis_GUI is also usable on the PC since it does not contain the Video and PPG recording part but only the analysis. In the Video Success folder the code for feature extraction from the video is presented. Also the code used to build the Random Forest classifier.
 
+Additional information can be found in the folders. 
+
 ## GUI
 The GUI was realised with pyQT5.
 ![image](Images/Analysis_GUI.png)
