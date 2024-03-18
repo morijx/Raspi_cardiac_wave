@@ -3,7 +3,7 @@
 The files heartrate_monitor, hrcalc and max30102 were not changed and just taken as is form the Kiosk at BMHT ETH Zürich.
 The BVP_Analysis file contains the Pipeline form pyVHR with slight changes to return the BVP for further analysis.
 
-[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-360/)
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 
 ## Use
 To utilize the graphical user interface (GUI), execute Main_GUI.py on the Raspberry Pi. Ensure that all the required code files are located in the same directory as Main_GUI.py. If encountering any issues, double-check the GPIO pin configurations and verify that the selected camera mode is supported.
