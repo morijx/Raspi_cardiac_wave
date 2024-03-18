@@ -3,7 +3,7 @@
 Using the notebooks in this folder, a classifier was trained to determine whether the video would give good results using the pyVHR pipeline, based on various features. 
 
 [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-360/)
-![GitHub last commit](https://img.shields.io/github/last-commit/phuselab/pyVHR)
+![GitHub last commit](https://img.shields.io/github/last-commit)
 
 ## Features
 - Brightness of the face: This measures the overall luminance or brightness level of the region
