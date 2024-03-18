@@ -4,7 +4,8 @@ The files heartrate_monitor, hrcalc and max30102 were not changed and just taken
 The BVP_Analysis file contains the Pipeline form pyVHR with slight changes to return the BVP for further analysis.
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)]
-[![pyVHR-cpu 1.0.2](https://img.shields.io/badge/pyVHR-cpu-1.0.2-blue.svg)(https://pypi.org/project/pyVHR-cpu/)]
+[![pyVHR cpu 1.0.2](https://img.shields.io/badge/pyVHR-cpu-1.0.2-blue.svg)](https://pypi.org/project/pyVHR-cpu/)
+[![pyVHR 2.0](https://img.shields.io/badge/pyVHR-2.0-blue.svg)](https://pypi.org/project/pyVHR/)
 ![GitHub last commit](https://img.shields.io/github/last-commit/morijx/Raspi_cardiac_wave)
 ![GitHub license](https://img.shields.io/github/license/morijx/Raspi_cardiac_wave)
 
