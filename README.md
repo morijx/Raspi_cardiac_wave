@@ -1,6 +1,8 @@
 # Raspi_cardiac_wave
 Mobile Platform to detect cardiac waveform remotely
 
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/pyvhr)
+
 ## Summary
 Contained are the 3 parts. First the GUI for video and PPG recording on the raspberry pi with data analysis. Second a GUI for analysing the data on the MacBook. Those two use the package pyVHR for the information extraction. Thrid a Notebook to generate teh features and the code to train and test a random forest classifier to predict the Video success.
 
