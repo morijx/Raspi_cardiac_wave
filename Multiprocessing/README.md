@@ -10,6 +10,7 @@ Acceleration for Holistic approach by multyprocessing frames parallel.
 ## Summary
 The introduction of a modified signal extraction method, alongside parallel processing of video frames within the Holistic approach, yielded a noticeable enhancement in computational efficiency on the MacBook platform. Used is the pyVHR-CPU package!
 
+Looking again at the original function structure, we can see that the frames are passed through one after the other to produce the signal. At this point, however, it should also be possible to process several frames at the same time on different cores and extract the signals. The function was rewritten for this purpose.
 
 ## Results
 
@@ -29,7 +30,5 @@ As it is shown in the table a reduction is clearly visible. From no multiprocess
 
 To use the code just start the Main_GUI.py. Keep in mind that the pyVHR-CPU package has to be installed correctly since it is needed in the process.
 
-Looking again at the original function structure, we can see that the frames are passed through one after the
-other to produce the signal. At this point, however, it should also be possible to process several frames
-at the same time on different cores and extract the signals. The function was rewritten for this purpose.
+
 
