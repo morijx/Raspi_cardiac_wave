@@ -25,7 +25,9 @@ The introduction of a modified signal extraction method, alongside parallel proc
 As it is shown in the table a reduction is clearly visible. From no multiprocessing to 3 parallel processes a time reduction of 24.6 \% is possible for the generation of the RGB signal. The calculation times shown refer to a 35s video with 1920x1080 resolution calculated on a MacBook Pro M1. 
 
 
+## Use
 
+To use the code just start the Main_GUI.py. Keep in mind that the pyVHR-CPU package has to be installed correctly since it is needed in the process.
 
 
 
