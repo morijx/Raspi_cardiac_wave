@@ -22,7 +22,7 @@ The introduction of a modified signal extraction method, alongside parallel proc
 | 10                           | 39.9052369594574       |
 
 
-As it is shown in the table a reduction is clearly visible. From no multiprocessing to 3 parallel processes a time reduction of 24.6 \% is possible for the generation of the RGB signal. 
+As it is shown in the table a reduction is clearly visible. From no multiprocessing to 3 parallel processes a time reduction of 24.6 \% is possible for the generation of the RGB signal. The calculation times shown refer to a 35s video with 1920x1080 resolution calculated on a MacBook Pro M1. 
 
 
 
