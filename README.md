@@ -408,6 +408,12 @@ Raspi_cardiac_wave/
 │   ├── Data_Cutting.ipynb
 │   └── Feature_generation-ipynb
 │
+├── Multiprocessing/
+│   ├── BVP_Analysis_Multiprocessing
+│   ├── Holistic
+│   ├── Holistic_multiprocessing
+│   └── Main-GUI
+│
 ├── Images/
 │   ├── Analysis_GUI.PNG
 │   ├── Case Assembled.jpg
@@ -419,12 +425,7 @@ Raspi_cardiac_wave/
 │   ├── Model
 │   ├── Training
 │   └── Validation
-│
-├── Multiprocessing/
-│   ├── BVP_Analysis_Multiprocessing
-│   ├── Holistic
-│   ├── Holistic_multiprocessing
-│   └── Main-GUI
+
 │
 ├── README.md
 │
