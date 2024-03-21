@@ -421,9 +421,10 @@ Raspi_cardiac_wave/
 │   └── Validation
 │
 ├── Multiprocessing/
-│   ├── Model
-│   ├── Training
-│   └── Validation
+│   ├── BVP_Analysis_Multiprocessing
+│   ├── Holistic
+│   ├── Holistic_multiprocessing
+│   └── Main-GUI
 │
 ├── README.md
 │
