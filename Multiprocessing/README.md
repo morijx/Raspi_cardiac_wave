@@ -8,6 +8,6 @@ Acceleration for Holistic approach by multyprocessing frames parallel.
 ![GitHub license](https://img.shields.io/github/license/morijx/Raspi_cardiac_wave)
 
 ## Summary
-The introduction of a modified signal extraction method, alongside parallel processing of video frames within the Holistic approach, yielded a noticeable enhancement in computational efficiency on the MacBook platform. Use is the pyVHR-CPU package!
+The introduction of a modified signal extraction method, alongside parallel processing of video frames within the Holistic approach, yielded a noticeable enhancement in computational efficiency on the MacBook platform. Used is the pyVHR-CPU package!
 
 
