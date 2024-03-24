@@ -38,6 +38,7 @@ As it is shown in the table a reduction is clearly visible. From no multiprocess
 ## Use
 
 To use the code just start the Main_GUI.py. Keep in mind that the pyVHR-CPU package has to be installed correctly since it is needed in the process.
+Also make sure to raplace the 'path' with an actual folder where vidoes are stored!
 
 
 
