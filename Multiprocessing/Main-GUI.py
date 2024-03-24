@@ -42,7 +42,7 @@ import numpy as np
 class HeartRateAnalyzer(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Heart Rate Analyzer")
+        self.setWindowTitle("Heart Rate Analyser")
         self.resize(1000,1400)
         self.show_error_message()
         self.initUI()
