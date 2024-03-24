@@ -17,7 +17,7 @@ along with this program. If not, see <https://www.gnu.org/licenses/>."""
 
 
 
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QGraphicsView
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QGraphicsView, QMessageBox
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap, QImage  
 import sys
@@ -41,6 +41,7 @@ class HeartRateAnalyzer(QWidget):
         super().__init__()
         self.setWindowTitle("Heart Rate Analyzer")
         self.resize(1000,800)
+        self.show_error_message()
         self.initUI()
 
 
@@ -81,7 +82,8 @@ class HeartRateAnalyzer(QWidget):
 
         self.setLayout(layout)
 
-
+    def show_error_message(self):
+        QMessageBox.critical(self, "Error", "This program comes with ABSOLUTELY NO WARRANTY")
 
     def analyze(self):
         
