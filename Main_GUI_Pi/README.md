@@ -83,4 +83,4 @@ Main_GUI_Pi/
 
 ```
 Due to privacy reasons, no video data or PPG data utilized in this work is available.
-Also make sure to raplace the 'path' with an actual folder where vidoes are stored!
+Also make sure to raplace the 'path' in the main file with an actual folder where vidoes are stored!
