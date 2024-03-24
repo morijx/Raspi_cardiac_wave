@@ -3,7 +3,7 @@
 Using the notebooks in this folder, a classifier was trained to determine whether the video would give good results using the pyVHR pipeline, based on various features. 
 
 [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
-[![sklearn 2.0](https://img.shields.io/badge/sklearn-2.0-blue.svg)](https://scikit-learn.org/stable/)
+[![scikit-learn 1.3](https://img.shields.io/badge/scikit-learn-1.3-blue.svg)](https://scikit-learn.org/stable/whats_new/v1.3.html#version-1-3-2)
 ![GitHub last commit](https://img.shields.io/github/last-commit/morijx/Raspi_cardiac_wave)
 ![GitHub license](https://img.shields.io/github/license/morijx/Raspi_cardiac_wave)
 
