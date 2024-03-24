@@ -138,7 +138,7 @@ class MyGUI(QWidget):
         self.setLayout(layout)
 
     def show_error_message(self):
-        QMessageBox.critical(self, "Error", "This program comes with ABSOLUTELY NO WARRANT")
+        QMessageBox.critical(self, "Error", "This program comes with ABSOLUTELY NO WARRANTY")
 
 
 
