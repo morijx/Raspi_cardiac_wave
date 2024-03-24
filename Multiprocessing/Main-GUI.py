@@ -97,11 +97,6 @@ class HeartRateAnalyzer(QWidget):
             print("Please enter the name of the file.")
             return
 
-        #if not self.file_path:
-        #    print("Please choose a file first.")
-        #    return
-        
-
         new_label = file_name
         recordingtime = 35
         method ="cpu_LGI" #"cpu_LGI_TSVD"
