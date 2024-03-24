@@ -1,4 +1,24 @@
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QGraphicsView, QFileDialog, QLineEdit
+"""main-GUI  - A graphical user interface for displaying rPPG generation results using pyVHR and multiprocessing.
+
+Copyright (C) 2024 morijx
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>."""
+
+print("This program comes with ABSOLUTELY NO WARRANT")
+
+
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QGraphicsView, QFileDialog, QLineEdit, QMessageBox
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap, QImage  
 import sys
@@ -24,6 +44,7 @@ class HeartRateAnalyzer(QWidget):
         super().__init__()
         self.setWindowTitle("Heart Rate Analyzer")
         self.resize(1000,1400)
+        self.show_error_message()
         self.initUI()
 
 
@@ -80,6 +101,8 @@ class HeartRateAnalyzer(QWidget):
 
         self.setLayout(layout)
 
+    def show_error_message(self):
+        QMessageBox.critical(self, "Error", "This program comes with ABSOLUTELY NO WARRANT")
 
 
     def choose_file(self):
