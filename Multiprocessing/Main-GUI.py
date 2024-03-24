@@ -117,8 +117,7 @@ class HeartRateAnalyzer(QWidget):
 
         
 
-        path = '/Users/janikmori/Documents/ETH/Masterarbeit/Python/pyVHR/pyVHR-pyVHR_CPU/notebooks/var/datasets/'
-        #path = '/Users/janikmori/Desktop/Segments/'
+        path = 'path'
         video_file = path+outputlabel
 
         lux_val = main_brightness(video_file)
