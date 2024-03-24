@@ -9,7 +9,7 @@ Mobile Platform to detect cardiac waveform remotely
 ## Summary
 Contained are the 3 parts. First the GUI for video and PPG recording on the raspberry pi with data analysis. Second a GUI for analysing the data on the MacBook. Those two use the package pyVHR for the information extraction. Thrid a Notebook to generate teh features and the code to train and test a random forest classifier to predict the Video success.
 
-## Description:
+## Description
 
 This project aims to leverage the capabilities of a Raspberry Pi 4 along with a camera and a pulse oximeter to compare the reliability of remote Photoplethysmography (rPPG) with traditional Pulse Oximetry (PPG). The Raspberry Pi 4, equipped with a camera module, captures facial video data, enabling the extraction of subtle changes in skin color associated with blood perfusion. Simultaneously, a pulse oximeter records the conventional PPG signal for comparison.
 
