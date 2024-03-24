@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>."""
 
 
-from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QLineEdit, QComboBox, QCheckBox, QGraphicsView
+from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QPushButton, QVBoxLayout, QLineEdit, QComboBox, QCheckBox, QGraphicsView, QMessageBox
 import sys
 from PyQt5.QtCore import Qt, QThread, pyqtSignal
 from heartrate_monitor import HeartRateMonitor
@@ -55,6 +55,7 @@ class MyGUI(QWidget):
     def __init__(self):
         super().__init__()
         self.setFixedSize(800,1000)
+        self.show_error_message()
         self.setWindowTitle("HR")
         # Initialize the GUI elements
         self.init_ui()
@@ -135,7 +136,10 @@ class MyGUI(QWidget):
 
         # Set the layout for the main window
         self.setLayout(layout)
-    
+
+    def show_error_message(self):
+        QMessageBox.critical(self, "Error", "This program comes with ABSOLUTELY NO WARRANT")
+
 
 
     def start_program(self):
