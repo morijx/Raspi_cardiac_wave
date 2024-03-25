@@ -46,8 +46,7 @@ Replace the Holostic_multiprocessing with the Holostic_multiprocessing_Pi or add
 | extract RGB with hol approach   | 198.03354                      | 111.13346                              |
 | windowing                       | 0.000963                       | 0.000952                               |
 | RGB to BVP method               | 0.060685                       | 0.024593                               |
-|---------------------------------|--------------------------------|----------------------------------------|
-| Total                           | 198.15987                      | 111.192                                |
+| **Total**                       | **198.15987**                  | **111.192**                            |
 
 
 ## Use
