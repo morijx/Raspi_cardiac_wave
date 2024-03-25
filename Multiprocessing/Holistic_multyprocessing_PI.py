@@ -65,7 +65,7 @@ def process_frame(frame, PRESENCE_THRESHOLD, VISIBILITY_THRESHOLD):
         return compute_rgb_mean(cropped_skin_im, SignalProcessingParams.RGB_LOW_TH, SignalProcessingParams.RGB_HIGH_TH)
     return None
 
-def extract_holistic_parallel(videoFileName, max_processes=5):
+def extract_holistic_parallel(videoFileName, max_processes=3, maxchilds = 75):
     # Read video
     cap = cv2.VideoCapture(videoFileName)
     num_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
@@ -73,7 +73,7 @@ def extract_holistic_parallel(videoFileName, max_processes=5):
     target_height = 480
     
     # Process frames in parallel with limited number of processes
-    with multiprocessing.Pool(processes=max_processes) as pool:
+    with multiprocessing.Pool(processes=max_processes, maxtasksperchild = maxchilds) as pool:
         results = []
         PRESENCE_THRESHOLD = 0.5
         VISIBILITY_THRESHOLD = 0.5
