@@ -48,6 +48,17 @@ Replace the Holostic_multiprocessing with the Holostic_multiprocessing_Pi or add
 | RGB to BVP method               | 0.060685                       | 0.024593                               |
 | **Total**                       | **198.15987**                  | **111.192**                            |
 
+The reduction in calculation time is very impressive and can probably be reduced even further with other parameters. Some are shown in the following Table.
+
+| Test | Time RGB extraction [s] | Parallel processes | max child processes |
+|------|--------------------------|--------------------|---------------------|
+| 1    | 111.13346                | 3                  | 20                  |
+| 2    | 101.821795               | 3                  | 50                  |
+| 3    | 100.39366                | 4                  | 50                  |
+| 4    | 98.26871                 | 3                  | 75                  |
+| 5    | 132.8003                 | 3                  | 100                 |
+
+
 
 ## Use
 
