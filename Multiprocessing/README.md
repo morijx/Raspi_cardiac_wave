@@ -40,6 +40,16 @@ To enable multiprocessing on the Raspberry Pi, an additional step had to be adde
 
 Replace the Holostic_multiprocessing with the Holostic_multiprocessing_Pi or add the needed lines of code. If your computer is struggeling with the task it might also help to limit the amount of child processes. 
 
+| Part of the Model                | No parallel processing [s]    | 3 Parallel max 20 child processes [s] |
+|---------------------------------|--------------------------------|----------------------------------------|
+| convexhul                       | 5.7220459e-6                   | 5.483627e-6                            |
+| extract RGB with hol approach   | 198.03354                      | 111.13346                              |
+| windowing                       | 0.000963                       | 0.000952                               |
+| RGB to BVP method               | 0.060685                       | 0.024593                               |
+|---------------------------------|--------------------------------|----------------------------------------|
+| Total                           | 198.15987                      | 111.192                                |
+
+
 ## Use
 
 To use the code just start the Main_GUI.py. Keep in mind that the pyVHR-CPU package has to be installed correctly since it is needed in the process.
