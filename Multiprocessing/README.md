@@ -58,7 +58,7 @@ The reduction in calculation time is very impressive and can probably be reduced
 | 4    | 98.26871                 | 3                  | 75                  |
 | 5    | 132.8003                 | 3                  | 100                 |
 
-
+To perform the test, the swap memory was expanded to the maximum of 2GB. However, as soon as swap was used to perform the calculation, the calculation time increased. This can be seen in example 5. It is therefore recommended to select the parameters in such a way that the maximum is utilised without having to access the swap. 
 
 ## Use
 
