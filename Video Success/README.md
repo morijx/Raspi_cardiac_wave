@@ -28,17 +28,23 @@ frame, typically represented in terms of hue, saturation, and value.
 ## Results
 The following table shows the accuracy scored for different Random states. The test score is 20% of the training data (85 Videos) where the validation score is a seperate set of 20 videos.
 
+Test accuracy
+| Features          | Random state 5 | Random state 42 | Random state 111 | Random state 0 |
+|-------------------|----------------|-----------------|-------------------|----------------|
+| All               | 0.88           | 0.76            | 0.71              | 0.71           |
+| Brightness (both)| 0.76           | 0.76            | 0.59              | 0.53           |
+| Face brightness   | 0.65           | 0.64            | 0.47              | 0.59           |
+| Frame brightness  | 0.88           | 0.76            | 0.71              | 0.65           |
 
-| Features               | Random state 5 | Random state 42 | Random state 111 | Random state 0 |
-|------------------------|----------------|-----------------|------------------|----------------|
-| All 5 test score       | 0.88           | 0.76            | 0.71             | 0.71           |
-| All 5 validation       | 0.95           | 0.95            | 0.92             | 0.86           |
-| Brightness (both) test score | 0.76     | 0.76            | 0.59             | 0.53           |
-| Brightness (both) validation | 0.78    | 0.81            | 0.86             | 0.83           |
-| Face brightness test score   | 0.65     | 0.64            | 0.47             | 0.59           |
-| Face brightness validation   | 0.78    | 0.81            | 0.77             | 0.80           |
-| Frame brightness test score  | 0.88     | 0.76            | 0.71             | 0.65           |
-| Frame brightness validation  | 0.81    | 0.81            | 0.82             | 0.82           |
+
+Validation accuracy
+| Features          | Random state 5 | Random state 42 | Random state 111 | Random state 0 |
+|-------------------|----------------|-----------------|-------------------|----------------|
+| All               | 0.95           | 0.95            | 0.92              | 0.86           |
+| Brightness (both)| 0.78           | 0.81            | 0.86              | 0.83           |
+| Face brightness   | 0.78           | 0.81            | 0.77              | 0.80           |
+| Frame brightness  | 0.81           | 0.81            | 0.82              | 0.82           |
+
 
 Depending on the random state the feature important changes. You can compare the importance plot for state 5 and 0 yourshelf with the code.
 
