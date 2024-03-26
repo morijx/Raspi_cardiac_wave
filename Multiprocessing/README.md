@@ -23,6 +23,8 @@ When evaluating the computational performance of each component within the pyVHR
 
 ## Results
 
+The table now shows the extraction time from the RGB signal for different number of parrallel processes on the MacBook.
+
 | Number of Parallel Processes | Computational Time [s] |
 |------------------------------|------------------------|
 | 1 (no multiprocessing)       | 33.30496311187744      |
