@@ -391,12 +391,14 @@ The following list displays the installed packages required for the system to fu
 
 The code for the Raspberry Pi was tested on a Pi4 and Pi5. Other than that the code was run on a MacBook Pro M1.
 
+## Structure
+
 ### Folder Structure
 In the Main_GUI_Pi folder all files for the Raspberry Pi are stored. The Analysis_GUI is also usable on the PC since it does not contain the Video and PPG recording part but only the analysis. In the Video Success folder the code for feature extraction from the video is presented. Also the code used to build the Random Forest classifier.
 
 Additional information can be found in the folders. 
 
-## Structure
+
 ```bash
 Raspi_cardiac_wave/
 │
