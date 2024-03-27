@@ -435,7 +435,7 @@ Raspi_cardiac_wave/
 ## License - MIT License.
 
 ### Contact
-This work was carried out at the BMHT at ETH Zurich. 
+This work was carried out at the BMHT at ETH Zurich. Supervised by Dr. Moe Elgendi and Prof. Dr. Carlo Menon.
 
 If you have any questions, please feel free to contact morij@ethz.ch !
 
