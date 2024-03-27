@@ -36,6 +36,7 @@ CV accuracy
 | Face brightness   | 0.65           | 0.64            | 0.47              | 0.59           |
 | Frame brightness  | 0.88           | 0.76            | 0.71              | 0.65           |
 
+After the CV the model is trained once more with all data to improve the model for the test with unknown vidoes.
 
 Test accuracy
 | Features          | Random state 5 | Random state 42 | Random state 111 | Random state 0 |
