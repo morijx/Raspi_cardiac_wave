@@ -435,6 +435,8 @@ Raspi_cardiac_wave/
 │   ├── Training
 │   └── Validation
 │
+├── LICENSE
+│
 ├── README.md
 │
 └── Requirements
