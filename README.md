@@ -437,6 +437,7 @@ Raspi_cardiac_wave/
 This work was carried out at the BMHT at ETH Zurich. Supervised by Dr. Moe Elgendi and Prof. Dr. Carlo Menon.
 
 If you have any questions, please feel free to contact morij@ethz.ch !
+©2024 Janik Mori
 
 
 ### Disclosure 
