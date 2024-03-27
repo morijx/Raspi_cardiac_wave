@@ -66,6 +66,5 @@ To perform the test, the swap memory was expanded to the maximum of 2GB. However
 
 To use the code just start the Main_GUI.py. Keep in mind that the pyVHR-CPU package has to be installed correctly since it is needed in the process.
 Also make sure to raplace the 'path' with an actual folder where vidoes are stored!
-
-
+The Holstic file just contains functions that are also available in the pyVHR package. It was mainly used in the process for understanding and printing different values.
 
