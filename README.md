@@ -437,7 +437,7 @@ Raspi_cardiac_wave/
 ### Contact
 This work was carried out at the BMHT at ETH Zurich. 
 
-If you have any questions, please feel free to contact morij@ethz.ch or moe.elgendi@hest.ethz.ch !
+If you have any questions, please feel free to contact morij@ethz.ch !
 
 
 ### Disclosure 
