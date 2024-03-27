@@ -22,10 +22,6 @@ In the final part of the project, a Random Forest Classifier is implemented to p
 
 Overall, this project provides insights into the feasibility of using rPPG techniques as a non-contact alternative to traditional PPG measurements on mobile platforms, with the added capability of predicting the success of pulse data extraction from video recordings using machine learning algorithms.
 
-### Folder Structure
-In the Main_GUI_Pi folder all files for the Raspberry Pi are stored. The Analysis_GUI is also usable on the PC since it does not contain the Video and PPG recording part but only the analysis. In the Video Success folder the code for feature extraction from the video is presented. Also the code used to build the Random Forest classifier.
-
-Additional information can be found in the folders. 
 
 ## GUI
 The GUI was realised with pyQT5.
@@ -394,6 +390,11 @@ The following list displays the installed packages required for the system to fu
 ## Configuration
 
 The code for the Raspberry Pi was tested on a Pi4 and Pi5. Other than that the code was run on a MacBook Pro M1.
+
+### Folder Structure
+In the Main_GUI_Pi folder all files for the Raspberry Pi are stored. The Analysis_GUI is also usable on the PC since it does not contain the Video and PPG recording part but only the analysis. In the Video Success folder the code for feature extraction from the video is presented. Also the code used to build the Random Forest classifier.
+
+Additional information can be found in the folders. 
 
 ## Structure
 ```bash
