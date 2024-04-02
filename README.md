@@ -32,7 +32,7 @@ The GUI was realised with pyQT5.
 
 Using the Multiprocessing code enabled a reduction in computation time by approximately half. Specifically, on the Pi 4, the processing time was slashed from nearly 200 seconds to around 100 seconds for a 35-second video. Conversely, the Pi 5 achieved this task in less than 60 seconds, compared to approximately 120 seconds without multiprocessing.
 
-It's important to note that these timings only pertain to the video computation aspect. The overall pipeline still requires more time than the aforementioned processing durations.
+It's important to note that these timings only pertain to the video computation aspect. The overall process still requires more time than the aforementioned processing durations.
 
 ## Package Requirements Raspberry Pi
 The following list displays the installed packages required for the system to function properly. Please note that while all listed packages are installed, not all of them may be necessary for the operation of the system. Additionally, the displayed versions do work with each other, although they may not be optimized for maximum performance.
