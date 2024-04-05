@@ -8,6 +8,7 @@ The BVP_Analysis file contains the Pipeline form pyVHR with slight changes to re
 [![pyVHR 2.0](https://img.shields.io/badge/pyVHR-2.0-blue.svg)](https://pypi.org/project/pyVHR/)
 ![GitHub last commit](https://img.shields.io/github/last-commit/morijx/Raspi_cardiac_wave)
 ![GitHub license](https://img.shields.io/github/license/morijx/Raspi_cardiac_wave)
+![Multiproccessing NO](https://img.shields.io/badge/Multiprocessing-NO-red.svg)
 
 
 ## Use
