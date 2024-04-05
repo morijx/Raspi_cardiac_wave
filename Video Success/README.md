@@ -6,7 +6,7 @@ Using the notebooks in this folder, a classifier was trained to determine whethe
 [![sklearn 1.3](https://img.shields.io/badge/sklearn-1.3-blue.svg)](https://scikit-learn.org/stable/whats_new/v1.3.html#version-1-3-2)
 ![GitHub last commit](https://img.shields.io/github/last-commit/morijx/Raspi_cardiac_wave)
 ![GitHub license](https://img.shields.io/github/license/morijx/Raspi_cardiac_wave)
-
+![Multiproccessing NO](https://img.shields.io/badge/Multiprocessing-NO-red.svg)
 
 ## Features
 - Brightness of the face: This measures the overall luminance or brightness level of the region
