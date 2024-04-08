@@ -29,22 +29,28 @@ frame, typically represented in terms of hue, saturation, and value.
 The following table shows the accuracy scored for different Random states. The test score is 20% of the training data (85 Videos) where the validation score is a seperate set of 20 videos.
 
 CV accuracy
-| Features          | Random state 5 | Random state 42 | Random state 111 | Random state 0 |
-|-------------------|----------------|-----------------|-------------------|----------------|
-| All               | 0.88           | 0.76            | 0.71              | 0.71           |
-| Brightness (both)| 0.76           | 0.76            | 0.59              | 0.53           |
-| Face brightness   | 0.65           | 0.64            | 0.47              | 0.59           |
-| Frame brightness  | 0.88           | 0.76            | 0.71              | 0.65           |
+| Features                   | Random state 5 | Random state 42 | Random state 111 | Random state 0 |
+|----------------------------|----------------|-----------------|------------------|----------------|
+| All                        | 0.82           | 0.71            | 0.82             | 0.65           |
+| Brightness Face and Frame  | 0.76           | 0.76            | 0.53             | 0.53           |
+| Face brightness            | 0.65           | 0.64            | 0.47             | 0.59           |
+| Frame brightness           | 0.88           | 0.76            | 0.71             | 0.65           |
+| PSNR                       | 0.76           | 0.47            | 0.53             | 0.53           |
+| Skin tone                  | 0.82           | 0.71            | 0.71             | 0.82           |
+| Mean Displacement          | 0.65           | 0.71            | 0.76             |
 
 After the CV the model is trained once more with all data to improve the model for the test with unknown vidoes.
 
 Test accuracy
-| Features          | Random state 5 | Random state 42 | Random state 111 | Random state 0 |
-|-------------------|----------------|-----------------|-------------------|----------------|
-| All               | 0.95           | 0.95            | 0.92              | 0.86           |
-| Brightness (both)| 0.78           | 0.81            | 0.86              | 0.83           |
-| Face brightness   | 0.78           | 0.81            | 0.77              | 0.80           |
-| Frame brightness  | 0.81           | 0.81            | 0.82              | 0.82           |
+| Features                   | Random state 5 | Random state 42 | Random state 111 | Random state 0 |
+|----------------------------|----------------|-----------------|------------------|----------------|
+| All                        | 0.89           | 0.90            | 0.99             | 0.90           |
+| Brightness Face and Frame  | 0.84           | 0.88            | 0.88             | 0.88           |
+| Face brightness            | 0.81           | 0.81            | 0.81             | 0.80           |
+| Frame brightness           | 0.81           | 0.87            | 0.81             | 0.81           |
+| PSNR                       | 0.78           | 1.00            | 0.83             | 0.90           |
+| Skin tone                  | 0.70           | 0.70            | 0.70             | 0.70           |
+| Mean Displacement          | 0.90           | 0.82            | 0.88             | 0.92           |
 
 
 Depending on the random state the feature important changes. You can compare the importance plot for state 5 and 0 yourshelf with the code.
