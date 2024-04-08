@@ -57,9 +57,9 @@ Depending on the random state the feature important changes. You can compare the
 
 ![image](../Images/Classifier.png)
 
-Blue: Cross validation score from training,
-Orange: Test score from the test split of the training data
-Green: test score from the additional videos
+- Blue: Cross validation score from training,
+- Orange: Test score from the test split of the training data
+- Green: test score from the additional videos
 
 ## Data
 
