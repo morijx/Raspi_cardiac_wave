@@ -70,24 +70,7 @@ class HeartRateMonitor(object):
             time.sleep(self.LOOP_TIME)
             
         sensor.shutdown()
-        
-        """fig, (ax1, ax2 )= plt.subplots(2,1)
-        n = len(ir_all)
-        y = [i for i in range(1, n+1)]
-        ax1.scatter(y,ir_all)
-        ax1.plot(y,ir_all)
-        m1 = np.mean(ir_all)
-        ax1.axhline(m1)
-        ax1.set_ylim(m1-5000,m1+5000)
-        m1med = np.median(ir_all)
-        
-        ax2.scatter(y,red_all)
-        ax2.plot(y,red_all)
-        m2 = np.mean(red_all)
-        ax2.axhline(m2)
-        ax2.set_ylim(m2-5000,m2+5000)
-        m2med = np.median(red_all)"""
-        
+    
         combined_data = [ir_all, red_all]
 
         # Specify the file name
@@ -100,47 +83,6 @@ class HeartRateMonitor(object):
             # Write the data as columns
             for column_data in combined_data:
                 writer.writerow(column_data)
-
-        
-        
-        
-        
-        
-        
-        
-        """fig, (ax1, ax2 )= plt.subplots(2,1)
-        n = len(bpms_vec)
-        y = [i for i in range(1, n+1)]
-        ax1.scatter(y,bpms_vec)
-        ax1.plot(y,bpms_vec)
-        ax1.set_ylim(20,220)
-        m1 = np.mean(bpms_vec)
-        ax1.axhline(m1)
-        m1med = np.median(bpms_vec)
-        
-        
-        
-        arr = [bpms_vec[0]]
-        
-        for i in bpms_vec[1:]:
-            if i != arr[-1]:
-                arr.append(i)
-                
-
-        n = len(arr)
-        y = [i for i in range(1, n+1)]
-        ax2.scatter(y,arr)
-        ax2.plot(y,arr)
-        ax2.set_ylim(20,220)
-        m = np.mean(arr)
-        ax2.axhline(m)
-        plt.show()
-        mmed = np.median(arr)
-        
-        print(m1)
-        print(m1med)
-        print(m)
-        print(mmed)"""
 
     def start_sensor(self):
         self._thread = threading.Thread(target=self.run_sensor)
