@@ -28,7 +28,7 @@ frame, typically represented in terms of hue, saturation, and value.
 ## Results
 The following table shows the accuracy scored for different Random states. The test score is 20% of the training data (85 Videos) where the validation score is a seperate set of 20 videos.
 
-CV accuracy
+Test accuracy of the 20% split of the training data
 | Features                   | Random state 5 | Random state 42 | Random state 111 | Random state 0 |
 |----------------------------|----------------|-----------------|------------------|----------------|
 | All                        | 0.82           | 0.71            | 0.82             | 0.65           |
@@ -41,7 +41,7 @@ CV accuracy
 
 After the CV the model is trained once more with all data to improve the model for the test with unknown vidoes.
 
-Test accuracy
+Test accuracy of the additional videos
 | Features                   | Random state 5 | Random state 42 | Random state 111 | Random state 0 |
 |----------------------------|----------------|-----------------|------------------|----------------|
 | All                        | 0.89           | 0.90            | 0.99             | 0.90           |
