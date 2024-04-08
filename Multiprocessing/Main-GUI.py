@@ -112,7 +112,19 @@ class HeartRateAnalyzer(QWidget):
             self.file_path = file_name
 
     def analyze(self):
-
+        """
+        Analyze video for heart rate and frequency characteristics.
+        
+        This method performs heart rate analysis on a video file specified by the user. It reads the file and extracts
+        holistic information from each frame, including skin color and pulse signals. The heart rate is computed from the
+        pulse signals using the ROV algorithm. The method then visualizes the pulse signals and computes their Fast Fourier
+        Transform (FFT) to identify the dominant frequency components. Additionally, it calculates the heart rate and the
+        number of peaks found in each pulse signal. Finally, the method displays the results, including the calculated heart
+        rates, the number of peaks, and the differences in frequency components between the pulse signals.
+        
+        Returns:
+            None
+        """
         self.figure.clear()
 
         file_name = self.textbox_file_name.text()
