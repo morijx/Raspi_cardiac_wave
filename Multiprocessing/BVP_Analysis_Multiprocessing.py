@@ -52,16 +52,55 @@ from Holistic_multyprocessing import extract_holistic_parallel as ehp
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 def calculate_brightness(frame):
+    """
+    Calculate the average brightness of a frame.
+
+    This function takes a frame (image) as input and calculates the average brightness across all color channels.
+    
+    Parameters:
+        frame (numpy.ndarray): The input frame (image) represented as a numpy array.
+    
+    Returns:
+        int: The calculated average brightness value, rounded to the nearest integer.
+    """
     # Calculate average brightness across color channels
     brightness = int(frame.mean())
     return brightness
 
 def detect_faces(frame):
+    """
+    Detect faces in a given frame using a cascade classifier.
+
+    This function detects faces in the provided frame using a pre-trained cascade classifier.
+    
+    Parameters:
+        frame (numpy.ndarray): The input frame (image) in which faces are to be detected.
+    
+    Returns:
+        numpy.ndarray: A NumPy array containing information about the detected faces.
+            Each row represents a detected face, with the format [x, y, w, h], where:
+            - (x, y) are the coordinates of the top-left corner of the bounding box,
+            - w is the width, and
+            - h is the height of the bounding box.
+    """
     # Detect faces in the frame
     faces = face_cascade.detectMultiScale(frame, 1.1, 4)
     return faces
 
 def main_brightness(video_path):
+    """
+    Calculate the mean brightness of faces in a video.
+
+    This function reads a video file, detects faces in each frame, calculates the brightness of each face,
+    and returns the mean brightness of all detected faces in the video.
+    
+    Parameters:
+        video_path (str): The path to the input video file.
+    
+    Returns:
+        float: The mean brightness of faces in the video.
+            If no faces are detected, it returns "Error".
+    """
     cap = cv2.VideoCapture(video_path)
     if not cap.isOpened():
         print("Error: Couldn't open the video file.")
@@ -290,6 +329,20 @@ def run_on_video( videoFileName, cuda=False, roi_method='convexhull', roi_approa
     return timesES, median_bpmES, mad_bpmES, bvps
 
 def cut_signal_at_peaks(signal, peaks, window_size):
+    """
+    Cut the signal around each peak.
+
+    This function takes a signal and a list of peak indices, and cuts out a window of specified size 
+    around each peak.
+
+    Parameters:
+        signal (numpy.ndarray): The input signal.
+        peaks (list): A list of indices representing the peak positions in the signal.
+        window_size (int): The size of the window to be cut around each peak. It must be an odd number.
+
+    Returns:
+        list: A list of cut signals. Each cut signal corresponds to a window around a peak.
+    """
     cut_signals = []
     for peak in peaks:
         start = peak - window_size // 2
@@ -298,6 +351,21 @@ def cut_signal_at_peaks(signal, peaks, window_size):
     return cut_signals
 
 def plot_padded_array(padded_array, fs, plot_duration=1.0):
+    """
+    Plot segments of a padded array.
+
+    This function plots segments of a 2D array with each row representing a segment, 
+    typically used for visualizing biosignals like photoplethysmogram (PPG) waveforms.
+
+    Parameters:
+        padded_array (numpy.ndarray): The 2D array containing segments of the signal.
+        fs (float): The sampling frequency of the signal.
+        plot_duration (float, optional): The duration (in seconds) to plot. 
+            Defaults to 1.0 second.
+
+    Returns:
+        None
+    """
     plt.figure(figsize=(10, 6))
     num_segments = padded_array.shape[0]
     max_nonzero_index = np.max(np.where(padded_array != 0))
@@ -316,6 +384,19 @@ def plot_padded_array(padded_array, fs, plot_duration=1.0):
 
 
 def create_padded_array_between_peaks(signal, peaks):
+    """
+    Create a padded array containing segments of a signal between consecutive peaks.
+
+    This function extracts segments of the signal between consecutive peaks and pads them to the length 
+    of the original signal. It returns a 2D array where each row represents a segment between peaks.
+
+    Parameters:
+        signal (numpy.ndarray): The input signal.
+        peaks (list): A list of indices representing the peak positions in the signal.
+
+    Returns:
+        numpy.ndarray: A 2D array containing segments of the signal padded to the length of the original signal.
+    """
     padded_array = []
     for i in range(len(peaks) - 1):
         start = peaks[i]
@@ -327,6 +408,18 @@ def create_padded_array_between_peaks(signal, peaks):
 
 
 def get_frame_timestamps(file_path):
+    """
+    Get timestamps for each frame in a video file.
+
+    This function opens a video file, calculates the timestamp for each frame based on its position,
+    and returns a list of timestamps corresponding to each frame.
+
+    Parameters:
+        file_path (str): The path to the input video file.
+
+    Returns:
+        list: A list of timestamps for each frame in the video.
+    """
     cap = cv2.VideoCapture(file_path)
 
     # Get frames per second and total frames
@@ -348,6 +441,18 @@ def get_frame_timestamps(file_path):
     return frame_timestamps
 
 def calculate_frame_rate(file_path):
+    """
+    Calculate the frame rate of a video file.
+
+    This function opens a video file, iterates through each frame to collect timestamps, 
+    and calculates the frame rate based on the timestamps.
+
+    Parameters:
+        file_path (str): The path to the input video file.
+
+    Returns:
+        float: The frame rate of the video file in frames per second (FPS).
+    """
     cap = cv2.VideoCapture(file_path)
 
     # Get total frames
@@ -426,8 +531,19 @@ def visualize_BVPs(BVPs,timestamps, overlap_ratio=1-1/6):
     return mean_signal, timestamps
 
 def PPG_data(csv_file):
+    """
+    Preprocess PPG data from a CSV file.
 
-    dataname = csv_file #'/Users/janikmori/Documents/ETH/Masterarbeit/Python/pyVHR/pyVHR-pyVHR_CPU/notebooks/var/datasets/D1.csv'
+    This function reads PPG data from a CSV file, preprocesses it, and returns the preprocessed data along with peak times and indices.
+
+    Parameters:
+        csv_file (str): The path to the CSV file containing PPG data.
+
+    Returns:
+        numpy.ndarray, numpy.ndarray, numpy.ndarray, numpy.ndarray, numpy.ndarray, numpy.ndarray, numpy.ndarray: 
+            Preprocessed PPG data for two channels, peak times for both channels, peak indices for both channels, and the time axis.
+    """
+    dataname = csv_file 
 
     start_cutoff = 8
     max_hr = 200
@@ -576,7 +692,19 @@ def PPG_data(csv_file):
 
 
 def BVP_data(calculated_frame_rate, mean_signal, timestamps):
+    """
+    Preprocess BVP (Blood Volume Pulse) data.
 
+    This function preprocesses BVP data, including filtering, and returns the preprocessed data along with timestamps.
+
+    Parameters:
+        calculated_frame_rate (float): The frame rate calculated from the video.
+        mean_signal (numpy.ndarray): The mean signal extracted from the video frames.
+        timestamps (numpy.ndarray): Timestamps corresponding to each frame in the video.
+
+    Returns:
+        numpy.ndarray, numpy.ndarray: Preprocessed BVP signal and corresponding timestamps.
+    """
     max_hr = 200
     start_cutoff = 8
 
@@ -639,7 +767,18 @@ def BVP_data(calculated_frame_rate, mean_signal, timestamps):
     return mean_singal_filtered, x_values_mean,
 
 def peakfinder_rppg(Y1_filtered_rppg, min_peak_prominence):
+    """
+    Find peaks in the preprocessed RPPG signal.
 
+    This function finds peaks in the preprocessed RPPG signal using the specified minimum peak prominence.
+
+    Parameters:
+        Y1_filtered_rppg (numpy.ndarray): The preprocessed RPPG signal.
+        min_peak_prominence (float): The minimum prominence of peaks.
+
+    Returns:
+        numpy.ndarray: Indices of the detected peaks in the RPPG signal.
+    """
     y1max = np.mean(Y1_filtered_rppg)
 
 
@@ -745,7 +884,19 @@ def plot_warping(s1, s2, x1, x2, path, filename=None, fig=None, axs=None,
 
 
 def DTW_analysis(normalized_time_series_yrppg, normalized_time_series_yir,normalized_time_series_yred):
+    """
+    Perform Dynamic Time Warping (DTW) analysis between two time series.
 
+    This function aligns two normalized time series using DTW and calculates the distance between them.
+
+    Parameters:
+        normalized_time_series_yrppg (numpy.ndarray): Normalized time series of the RPPG signal.
+        normalized_time_series_yir (numpy.ndarray): Normalized time series of the IR signal.
+        normalized_time_series_yred (numpy.ndarray): Normalized time series of the RED signal.
+
+    Returns:
+        list, float: The warping path between the two time series and the calculated distance.
+    """
     high_freq_data_aligned= normalized_time_series_yrppg/2 +0.5
     low_freq_data_aligned = normalized_time_series_yir/2 +0.5
     path = dtw.warping_path(-low_freq_data_aligned,high_freq_data_aligned)
@@ -771,7 +922,21 @@ def DTW_analysis(normalized_time_series_yrppg, normalized_time_series_yir,normal
 
 
 def analysis(video_file, csv_file, bvps):
+    """
+    Perform analysis on video and physiological data.
 
+    This function conducts analysis on video and physiological data, including preprocessing, feature extraction,
+    and Dynamic Time Warping (DTW) analysis.
+
+    Parameters:
+        video_file (str): The path to the video file.
+        csv_file (str): The path to the CSV file containing physiological data.
+        bvps (numpy.ndarray): Blood Volume Pulse (BVP) data.
+
+    Returns:
+        tuple: A tuple containing peaks detected in R, IR, and RPPG signals, aligned low-frequency and high-frequency signals,
+        and related timestamps and DTW analysis results.
+    """
 
     # Assuming 'method' is defined somewhere before calling the function
     window_range = (0, len(bvps))  # Adjust the range of windows to visualize
@@ -819,6 +984,6 @@ def analysis(video_file, csv_file, bvps):
     return peaks_r, peaks_ir, peaks_rppg, y1, y2, x1, x2, path_norm, dist
 
 
-# Function to cut the PPG signal at the peaks
+
 
 
