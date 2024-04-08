@@ -8,6 +8,20 @@ from pyVHR.extraction.sig_extraction_methods import *
 import multiprocessing
 
 def extract_skin(frame, ldmks):
+    """
+    Extract skin pixels from a frame using a predefined skin color range in HSV color space.
+
+    This function converts the input frame to the HSV color space and creates a mask to isolate skin pixels based on
+    predefined lower and upper bounds for skin color. It then applies the mask to the original frame to extract skin
+    regions.
+
+    Parameters:
+        frame (numpy.ndarray): The input frame in BGR color space.
+        ldmks (list): List of facial landmarks.
+
+    Returns:
+        numpy.ndarray, numpy.ndarray: The skin regions extracted from the frame and the binary mask used for extraction.
+    """
     # Convert frame to HSV color space
     hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
@@ -26,6 +40,20 @@ def extract_skin(frame, ldmks):
     return skin_im, mask
 
 def compute_rgb_mean(cropped_skin_im, low_th, high_th):
+    """
+    Compute the mean RGB values of a cropped skin image.
+
+    This function converts the input cropped skin image to float32 to prevent overflow during calculations.
+    It then computes the mean RGB values and optionally applies any preprocessing or post-processing if needed.
+
+    Parameters:
+        cropped_skin_im (numpy.ndarray): The cropped skin image in BGR color space.
+        low_th (float): Lower threshold for preprocessing.
+        high_th (float): Upper threshold for preprocessing.
+
+    Returns:
+        numpy.ndarray: The mean RGB values of the cropped skin image.
+    """
     # Convert the image to float32 to prevent overflow during calculations
     cropped_skin_im = cropped_skin_im.astype(np.float32)
 
@@ -39,6 +67,22 @@ def compute_rgb_mean(cropped_skin_im, low_th, high_th):
     return rgb_mean
 
 def process_frame(frame, PRESENCE_THRESHOLD, VISIBILITY_THRESHOLD):
+    """
+    Process a single frame to extract skin color information.
+
+    This function initializes the FaceMesh model and other necessary components to detect facial landmarks in the input frame.
+    It then extracts skin color information from the detected facial landmarks by first converting the frame to RGB color space,
+    detecting landmarks using FaceMesh, and extracting skin pixels using predefined thresholds for presence and visibility.
+    The function returns the mean RGB values of the cropped skin region if a face is detected, otherwise returns None.
+
+    Parameters:
+        frame (numpy.ndarray): The input frame in BGR color space.
+        PRESENCE_THRESHOLD (float): The presence threshold for facial landmarks.
+        VISIBILITY_THRESHOLD (float): The visibility threshold for facial landmarks.
+
+    Returns:
+        numpy.ndarray or None: The mean RGB values of the cropped skin region if a face is detected, otherwise None.
+    """
     # Initialize FaceMesh and other necessary components
     mp_face_mesh = mp.solutions.face_mesh
     face_mesh = mp_face_mesh.FaceMesh(
@@ -66,6 +110,21 @@ def process_frame(frame, PRESENCE_THRESHOLD, VISIBILITY_THRESHOLD):
     return None
 
 def extract_holistic_parallel(videoFileName, max_processes=5):
+    """
+    Extract holistic skin color information from a video in parallel.
+
+    This function reads the input video file, processes its frames in parallel using a limited number of processes,
+    and extracts holistic skin color information from each frame. It resizes each frame to a target width and height,
+    then applies multiprocessing to process frames in parallel with the specified number of processes.
+    The function returns an array containing the extracted skin color information for each frame.
+
+    Parameters:
+        videoFileName (str): The path to the input video file.
+        max_processes (int): The maximum number of processes to use for parallel processing.
+
+    Returns:
+        numpy.ndarray: An array containing the extracted skin color information for each frame in the video.
+    """
     # Read video
     cap = cv2.VideoCapture(videoFileName)
     num_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
