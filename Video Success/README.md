@@ -55,6 +55,8 @@ Test accuracy
 
 Depending on the random state the feature important changes. You can compare the importance plot for state 5 and 0 yourshelf with the code.
 
+![image](../Images/Classifier.png)
+
 ## Data
 
 The data folder contains some data in the form of features. The videos are not accessible. 
