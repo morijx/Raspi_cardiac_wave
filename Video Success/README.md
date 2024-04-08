@@ -57,6 +57,10 @@ Depending on the random state the feature important changes. You can compare the
 
 ![image](../Images/Classifier.png)
 
+Blue: Cross validation score from training,
+Orange: Test score from the test split of the training data
+Green: test score from the additional videos
+
 ## Data
 
 The data folder contains some data in the form of features. The videos are not accessible. 
