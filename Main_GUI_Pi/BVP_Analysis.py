@@ -36,6 +36,20 @@ import os.path
 
 
 def get_frame_timestamps(file_path):
+    """
+    Get timestamps for each frame in a video file.
+    
+    This function reads a video file specified by the file path and retrieves the timestamps for each frame.
+    It calculates the frame duration based on the video's frames per second (fps) and then computes the timestamp
+    for each frame by multiplying its frame index by the frame duration. The function returns a list containing
+    the timestamps for each frame in the video.
+    
+    Parameters:
+        file_path (str): The path to the input video file.
+    
+    Returns:
+        List[float]: A list containing the timestamps for each frame in the video.
+    """
     cap = cv2.VideoCapture(file_path)
 
     # Get frames per second and total frames
@@ -57,6 +71,20 @@ def get_frame_timestamps(file_path):
     return frame_timestamps
 
 def calculate_frame_rate(file_path):
+    """
+    Calculate the frame rate of a video file.
+    
+    This function reads a video file specified by the file path and calculates the frame rate (frames per second) of the video.
+    It achieves this by collecting timestamps for each frame and then using the timestamps to compute the frame rate.
+    The frame rate is calculated as the total number of frames divided by the duration between the timestamps of the first
+    and last frames.
+    
+    Parameters:
+        file_path (str): The path to the input video file.
+    
+    Returns:
+        float: The frame rate of the video file in frames per second (fps).
+    """
     cap = cv2.VideoCapture(file_path)
 
     # Get total frames
@@ -128,8 +156,26 @@ def visualize_BVPs(BVPs,timestamps, overlap_ratio=1-(0.2)):
     return mean_signal, timestamps
 
 def PPG_data(csv_file):
-
-    dataname = csv_file #'/Users/janikmori/Documents/ETH/Masterarbeit/Python/pyVHR/pyVHR-pyVHR_CPU/notebooks/var/datasets/D1.csv'
+    """
+    Process PPG (Photoplethysmography) data from a CSV file.
+    
+    This function reads PPG data from a CSV file and performs preprocessing steps including baseline drift removal, bandpass filtering, and peak detection.
+    It then calculates peak times and BPM (beats per minute) values for each signal.
+    
+    Parameters:
+        csv_file (str): The path to the CSV file containing PPG data.
+    
+    Returns:
+        tuple: A tuple containing the following elements:
+            - Y1_filtered (numpy.ndarray): Filtered PPG signal 1.
+            - Y2_filtered (numpy.ndarray): Filtered PPG signal 2.
+            - peak_times1 (numpy.ndarray): Times of detected peaks in PPG signal 1.
+            - peak_times2 (numpy.ndarray): Times of detected peaks in PPG signal 2.
+            - peaks1 (numpy.ndarray): Indices of detected peaks in PPG signal 1.
+            - peaks2 (numpy.ndarray): Indices of detected peaks in PPG signal 2.
+            - X (numpy.ndarray): Time axis corresponding to the PPG signals.
+    """
+    dataname = csv_file 
 
     start_cutoff = 8
     max_hr = 200
@@ -245,7 +291,22 @@ def PPG_data(csv_file):
 
 
 def BVP_data(calculated_frame_rate, mean_signal, timestamps):
-
+    """
+    Process BVP (Blood Volume Pressure) data.
+    
+    This function takes the calculated frame rate, mean signal, and timestamps as input and performs preprocessing steps including baseline drift removal and bandpass filtering.
+    It then returns the filtered mean signal along with corresponding timestamps.
+    
+    Parameters:
+        calculated_frame_rate (float): The calculated frame rate of the video.
+        mean_signal (numpy.ndarray): The mean signal data.
+        timestamps (numpy.ndarray): The timestamps corresponding to the mean signal data.
+    
+    Returns:
+        tuple: A tuple containing the following elements:
+            - mean_signal_filtered (numpy.ndarray): The filtered mean signal.
+            - x_values_mean (numpy.ndarray): The corresponding timestamps for the filtered mean signal.
+    """
     max_hr = 200
     start_cutoff = 8
 
@@ -305,7 +366,18 @@ def BVP_data(calculated_frame_rate, mean_signal, timestamps):
     return mean_singal_filtered, x_values_mean,
 
 def peakfinder_rppg(Y1_filtered_rppg, min_peak_prominence):
-
+    """
+    Find peaks in the filtered rPPG (remote Photoplethysmography) signal.
+    
+    This function takes the filtered rPPG signal and a minimum peak prominence threshold as input. It uses the `find_peaks` function from the scipy library to detect peaks in the signal based on the specified parameters.
+    
+    Parameters:
+        Y1_filtered_rppg (numpy.ndarray): The filtered rPPG signal.
+        min_peak_prominence (float): The minimum prominence of peaks to be detected.
+    
+    Returns:
+        numpy.ndarray: An array containing the indices of the detected peaks in the filtered rPPG signal.
+    """
     y1max = np.mean(Y1_filtered_rppg)
 
 
@@ -314,10 +386,6 @@ def peakfinder_rppg(Y1_filtered_rppg, min_peak_prominence):
 
     # Find peaks for both signals
     peaks1, _ = find_peaks(Y1_filtered_rppg, height=y1max, distance=min_peak_distance, prominence=min_peak_prominence)
-
-    # Plot the filtered and unfiltered data
-
-    
 
     return peaks1
 
@@ -411,7 +479,19 @@ def plot_warping(s1, s2, x1, x2, path, filename=None, fig=None, axs=None,
 
 
 def DTW_analysis(normalized_time_series_yrppg, normalized_time_series_yir,normalized_time_series_yred):
-
+    """
+    Perform Dynamic Time Warping (DTW) analysis on normalized time series data.
+    
+    This function takes three normalized time series as input: one representing high-frequency data (rPPG), and two representing low-frequency data (IR and red PPG). It aligns the low-frequency data to the high-frequency data using DTW, calculates the warping path, and visualizes the alignment. The function then computes the DTW distance between the aligned low-frequency data and the high-frequency data.
+    
+    Parameters:
+        normalized_time_series_yrppg (numpy.ndarray): Normalized time series data representing high-frequency rPPG.
+        normalized_time_series_yir (numpy.ndarray): Normalized time series data representing low-frequency IR.
+        normalized_time_series_yred (numpy.ndarray): Normalized time series data representing low-frequency red PPG.
+    
+    Returns:
+        tuple: A tuple containing the warping path (as a list of coordinate pairs) and the DTW distance between the aligned low-frequency data and the high-frequency data.
+    """
     high_freq_data_aligned= normalized_time_series_yrppg/2 +0.5
     low_freq_data_aligned = normalized_time_series_yir/2 +0.5
     path = dtw.warping_path(-low_freq_data_aligned,high_freq_data_aligned)
@@ -435,7 +515,26 @@ def DTW_analysis(normalized_time_series_yrppg, normalized_time_series_yir,normal
 
 
 def analysis(video_file, csv_file, bvps):
-
+    """
+    Perform analysis on video and CSV files to extract and analyze physiological signals.
+    
+    This function takes the paths to a video file and a CSV file containing physiological data as input, along with the blood volume pulses (BVPs) extracted from the video frames. It performs a series of steps including:
+    1. Extracting frame timestamps from the video file.
+    2. Calculating the frame rate (assumed as 30 FPS in this implementation).
+    3. Visualizing the blood volume pulses (BVPs) from the video frames.
+    4. Preprocessing the BVP and photoplethysmography (PPG) data.
+    5. Normalizing the PPG signals and finding peaks in the normalized data.
+    6. Performing Dynamic Time Warping (DTW) analysis on the normalized PPG signals.
+    7. Aligning the PPG signals and visualizing the alignment.
+    
+    Parameters:
+        video_file (str): The path to the input video file.
+        csv_file (str): The path to the CSV file containing physiological data.
+        bvps (list): List of blood volume pulses extracted from video frames.
+    
+    Returns:
+        tuple: A tuple containing peaks found in the red PPG signal, IR PPG signal, rPPG signal, normalized low-frequency PPG signal (Y1), normalized high-frequency PPG signal (Y2), timestamps for the PPG signal (x1), timestamps for the BVP signal (x2), warping path between the low-frequency and high-frequency PPG signals, and the DTW distance between the aligned signals.
+    """
 
     # Assuming 'method' is defined somewhere before calling the function
     window_range = (0, len(bvps))  # Adjust the range of windows to visualize
