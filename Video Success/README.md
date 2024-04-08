@@ -66,7 +66,6 @@ Depending on the random state the feature important changes. You can compare the
 The data folder contains some data in the form of features. The videos are not accessible. 
 However, the data can be used to train the models. 
 
-The training data is stored in the Training folder, the validation data in the Validate folder and the trained models in the Models folder. 
 
 
 
