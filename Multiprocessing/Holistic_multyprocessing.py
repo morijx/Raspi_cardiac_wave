@@ -7,64 +7,115 @@ from pyVHR.extraction.sig_extraction_methods import *
 
 import multiprocessing
 
-def extract_skin(frame, ldmks):
+
+def holistic_mean(im, RGB_LOW_TH, RGB_HIGH_TH):
     """
-    Extract skin pixels from a frame using a predefined skin color range in HSV color space.
+    This method computes the RGB-Mean Signal excluding 'im' pixels
+    that are outside the RGB range [RGB_LOW_TH, RGB_HIGH_TH] (extremes are included).
 
-    This function converts the input frame to the HSV color space and creates a mask to isolate skin pixels based on
-    predefined lower and upper bounds for skin color. It then applies the mask to the original frame to extract skin
-    regions.
+    Args: 
+        im (uint8 ndarray): ndarray with shape [rows, columns, rgb_channels].
+        RGB_LOW_TH (numpy.int32): RGB low threshold value.
+        RGB_HIGH_TH (numpy.int32): RGB high threshold value.
+    
+    Returns:
+        RGB-Mean Signal as float32 ndarray with shape [1,3], where 1 is the single estimator,
+        and 3 are r-mean, g-mean and b-mean.
+    """
+    mean = np.zeros((1, 3), dtype=np.float32)
+    mean_r = np.float32(0.0)
+    mean_g = np.float32(0.0)
+    mean_b = np.float32(0.0)
+    num_elems = np.float32(0.0)
+    for x in prange(im.shape[0]):
+        for y in prange(im.shape[1]):
+            if not((im[x, y, 0] <= RGB_LOW_TH and im[x, y, 1] <= RGB_LOW_TH and im[x, y, 2] <= RGB_LOW_TH)
+                    or (im[x, y, 0] >= RGB_HIGH_TH and im[x, y, 1] >= RGB_HIGH_TH and im[x, y, 2] >= RGB_HIGH_TH)):
+                mean_r += im[x, y, 0]
+                mean_g += im[x, y, 1]
+                mean_b += im[x, y, 2]
+                num_elems += 1.0
+    if num_elems > 1.0:
+        mean[0, 0] = mean_r / num_elems
+        mean[0, 1] = mean_g / num_elems
+        mean[0, 2] = mean_b / num_elems
+    else:
+        mean[0, 0] = mean_r
+        mean[0, 1] = mean_g
+        mean[0, 2] = mean_b 
+    return mean
 
-    Parameters:
-        frame (numpy.ndarray): The input frame in BGR color space.
-        ldmks (list): List of facial landmarks.
+def extract_skin1(image, ldmks):
+    """
+    This method extract the skin from an image using Convex Hull segmentation.
+
+    Args:
+        image (uint8 ndarray): ndarray with shape [rows, columns, rgb_channels].
+        ldmks (float32 ndarray): landmarks used to create the Convex Hull; ldmks is a ndarray with shape [num_landmarks, xy_coordinates].
 
     Returns:
-        numpy.ndarray, numpy.ndarray: The skin regions extracted from the frame and the binary mask used for extraction.
+        Cropped skin-image and non-cropped skin-image; both are uint8 ndarray with shape [rows, columns, rgb_channels].
     """
-    # Convert frame to HSV color space
-    hsv_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-    # Define lower and upper bounds for skin color in HSV
-    lower_skin = np.array([0, 48, 80], dtype=np.uint8)
-    upper_skin = np.array([20, 255, 255], dtype=np.uint8)
+    from pyVHR.extraction.sig_processing import MagicLandmarks
+    aviable_ldmks = ldmks[ldmks[:,0] >= 0][:,:2]        
+    # face_mask convex hull 
+    hull = ConvexHull(aviable_ldmks)
+    verts = [(aviable_ldmks[v,0], aviable_ldmks[v,1]) for v in hull.vertices]
+    img = Image.new('L', image.shape[:2], 0)
+    ImageDraw.Draw(img).polygon(verts, outline=1, fill=1)
+    mask = np.array(img)
+    mask = np.expand_dims(mask,axis=0).T
 
-    # Create a mask to isolate skin pixels
-    mask = cv2.inRange(hsv_frame, lower_skin, upper_skin)
+    # left eye convex hull
+    """left_eye_ldmks = ldmks[MagicLandmarks.left_eye]
+    aviable_ldmks = left_eye_ldmks[left_eye_ldmks[:,0] >= 0][:,:2]
+    if len(aviable_ldmks) > 3:
+        hull = ConvexHull(aviable_ldmks)
+        verts = [(aviable_ldmks[v,0], aviable_ldmks[v,1]) for v in hull.vertices]
+        img = Image.new('L', image.shape[:2], 0)
+        ImageDraw.Draw(img).polygon(verts, outline=1, fill=1)
+        left_eye_mask = np.array(img)
+        left_eye_mask = np.expand_dims(left_eye_mask,axis=0).T
+    else:
+        left_eye_mask = np.ones((image.shape[0], image.shape[1],1),dtype=np.uint8)"""
 
-    # Apply the mask to the original frame
-    skin_im = cv2.bitwise_and(frame, frame, mask=mask)
+    # right eye convex hull
+    """right_eye_ldmks = ldmks[MagicLandmarks.right_eye]
+    aviable_ldmks = right_eye_ldmks[right_eye_ldmks[:,0] >= 0][:,:2]
+    if len(aviable_ldmks) > 3:
+        hull = ConvexHull(aviable_ldmks)
+        verts = [(aviable_ldmks[v,0], aviable_ldmks[v,1]) for v in hull.vertices]
+        img = Image.new('L', image.shape[:2], 0)
+        ImageDraw.Draw(img).polygon(verts, outline=1, fill=1)
+        right_eye_mask = np.array(img)
+        right_eye_mask = np.expand_dims(right_eye_mask,axis=0).T
+    else:
+        right_eye_mask = np.ones((image.shape[0], image.shape[1],1),dtype=np.uint8)"""
 
-    # Optionally, you can perform additional processing or refinement on the skin_im
+    # mounth convex hull
+    """mounth_ldmks = ldmks[MagicLandmarks.mounth]
+    aviable_ldmks = mounth_ldmks[mounth_ldmks[:,0] >= 0][:,:2]
+    if len(aviable_ldmks) > 3:
+        hull = ConvexHull(aviable_ldmks)
+        verts = [(aviable_ldmks[v,0], aviable_ldmks[v,1]) for v in hull.vertices]
+        img = Image.new('L', image.shape[:2], 0)
+        ImageDraw.Draw(img).polygon(verts, outline=1, fill=1)
+        mounth_mask = np.array(img)
+        mounth_mask = np.expand_dims(mounth_mask,axis=0).T
+    else:
+        mounth_mask = np.ones((image.shape[0], image.shape[1],1),dtype=np.uint8)"""
 
-    return skin_im, mask
+    # apply masks and crop 
+    skin_image = image * mask #* (1-left_eye_mask) * (1-right_eye_mask) * (1-mounth_mask)
 
-def compute_rgb_mean(cropped_skin_im, low_th, high_th):
-    """
-    Compute the mean RGB values of a cropped skin image.
+    rmin, rmax, cmin, cmax = bbox2_CPU(skin_image)
 
-    This function converts the input cropped skin image to float32 to prevent overflow during calculations.
-    It then computes the mean RGB values and optionally applies any preprocessing or post-processing if needed.
+    cropped_skin_im = skin_image
+    if rmin >= 0 and rmax >= 0 and cmin >= 0 and cmax >= 0 and rmax-rmin >= 0 and cmax-cmin >= 0:
+        cropped_skin_im = skin_image[int(rmin):int(rmax), int(cmin):int(cmax)]
 
-    Parameters:
-        cropped_skin_im (numpy.ndarray): The cropped skin image in BGR color space.
-        low_th (float): Lower threshold for preprocessing.
-        high_th (float): Upper threshold for preprocessing.
-
-    Returns:
-        numpy.ndarray: The mean RGB values of the cropped skin image.
-    """
-    # Convert the image to float32 to prevent overflow during calculations
-    cropped_skin_im = cropped_skin_im.astype(np.float32)
-
-    # Optionally, apply any preprocessing to the image if needed
-
-    # Compute mean RGB values
-    rgb_mean = np.mean(cropped_skin_im, axis=(0, 1))
-
-    # Optionally, you can perform additional post-processing or filtering on the rgb_mean
-
-    return rgb_mean
+    return cropped_skin_im, skin_image
 
 def process_frame(frame, PRESENCE_THRESHOLD, VISIBILITY_THRESHOLD):
     """
@@ -83,7 +134,8 @@ def process_frame(frame, PRESENCE_THRESHOLD, VISIBILITY_THRESHOLD):
     Returns:
         numpy.ndarray or None: The mean RGB values of the cropped skin region if a face is detected, otherwise None.
     """
-    # Initialize FaceMesh and other necessary components
+    sig = []
+    
     mp_face_mesh = mp.solutions.face_mesh
     face_mesh = mp_face_mesh.FaceMesh(
         max_num_faces=1,
@@ -105,11 +157,13 @@ def process_frame(frame, PRESENCE_THRESHOLD, VISIBILITY_THRESHOLD):
                 if coords:
                     ldmks[idx, 0] = coords[1]
                     ldmks[idx, 1] = coords[0]
-        cropped_skin_im, full_skin_im = extract_skin(image, ldmks)
-        return compute_rgb_mean(cropped_skin_im, SignalProcessingParams.RGB_LOW_TH, SignalProcessingParams.RGB_HIGH_TH)
+        cropped_skin_im, full_skin_im = extract_skin1(image, ldmks)# extract skin
+        sig.append(holistic_mean(
+                    cropped_skin_im, np.int32(SignalProcessingParams.RGB_LOW_TH), np.int32(SignalProcessingParams.RGB_HIGH_TH)))
+        return sig #compute_rgb_mean(cropped_skin_im, SignalProcessingParams.RGB_LOW_TH, SignalProcessingParams.RGB_HIGH_TH)
     return None
 
-def extract_holistic_parallel(videoFileName, max_processes=5):
+def extract_holistic_parallel(videoFileName, max_processes=5, maxchild = 90):
     """
     Extract holistic skin color information from a video in parallel.
 
@@ -125,20 +179,17 @@ def extract_holistic_parallel(videoFileName, max_processes=5):
     Returns:
         numpy.ndarray: An array containing the extracted skin color information for each frame in the video.
     """
-    # Read video
     cap = cv2.VideoCapture(videoFileName)
     num_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    target_width = 640
-    target_height = 480
     
     # Process frames in parallel with limited number of processes
-    with multiprocessing.Pool(processes=max_processes) as pool:
+    with multiprocessing.Pool(processes=max_processes, maxtasksperchild= maxchild) as pool:
         results = []
         PRESENCE_THRESHOLD = 0.5
         VISIBILITY_THRESHOLD = 0.5
         for _ in range(num_frames):
             ret, frame = cap.read()
-            resized_frame = cv2.resize(frame, (target_width, target_height))
+            resized_frame = frame 
             results.append(pool.apply_async(process_frame, (resized_frame, PRESENCE_THRESHOLD, VISIBILITY_THRESHOLD)))
         
         # Collect results
