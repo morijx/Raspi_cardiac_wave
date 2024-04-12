@@ -450,6 +450,19 @@ This work was carried out at the BMHT Lab at ETH Zurich. Supervised by Dr. Moe E
 If you have any questions, please feel free to contact morij@ethz.ch !
 ©2024 Janik Mori
 
+## Reference
+
+```
+@article{boccignone2022pyvhr,
+  title={pyVHR: a Python framework for remote photoplethysmography},
+  author={Boccignone, Giuseppe and Conte, Donatello and Cuculo, Vittorio and D’Amelio, Alessandro and Grossi, Giuliano and Lanzarotti, Raffaella and Mortara, Edoardo},
+  journal={PeerJ Computer Science},
+  volume={8},
+  pages={e929},
+  year={2022},
+  publisher={PeerJ Inc.}
+}
+```
 
 ### Disclosure 
 This project description was generated with assistance from an AI language model. While the content has been reviewed to ensure accuracy and coherence, it should be noted that AI technology was employed in its composition. Any potential errors or discrepancies are the responsibility of the user to verify.
