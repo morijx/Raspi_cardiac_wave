@@ -1,8 +1,6 @@
 # Raspi_cardiac_wave
 Towards a Portable Device for Cardiac Wave Form Assessment
 
-![image](https://github.com/morijx/Raspi_cardiac_wave/assets/163516843/53e5ba9c-6047-4cb1-beaf-0d5ee6b4eb1d)
-
 
 [![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-3110/)
 [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
