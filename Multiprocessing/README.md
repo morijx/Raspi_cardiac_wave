@@ -46,20 +46,11 @@ Replace the Holostic_multiprocessing with the Holostic_multiprocessing_Pi or add
 | Part of the Model                | No parallel processing [s]    | 3 Parallel max 20 child processes [s] |
 |---------------------------------|--------------------------------|----------------------------------------|
 | convexhul                       | 5.7220459e-6                   | 5.483627e-6                            |
-| extract RGB with hol approach   | 198.03354                      | 111.13346                              |
+| extract RGB with hol approach   | 198.03354                      | 143.520                                |
 | windowing                       | 0.000963                       | 0.000952                               |
 | RGB to BVP method               | 0.060685                       | 0.024593                               |
-| **Total**                       | **198.15987**                  | **111.192**                            |
+| **Total**                       | **198.15987**                  | **143.535**                            |
 
-The reduction in calculation time is very impressive and can probably be reduced even further with other parameters. Some are shown in the following Table.
-
-| Test | Time RGB extraction [s] | Parallel processes | max child processes |
-|------|--------------------------|--------------------|---------------------|
-| 1    | 111.13346                | 3                  | 20                  |
-| 2    | 101.821795               | 3                  | 50                  |
-| 3    | 100.39366                | 4                  | 50                  |
-| 4    | 98.26871                 | 3                  | 75                  |
-| 5    | 132.8003                 | 3                  | 100                 |
 
 To perform the test, the swap memory was expanded to the maximum of 2GB. However, as soon as swap was used to perform the calculation, the calculation time increased. This can be seen in example 5. It is therefore recommended to select the parameters in such a way that the maximum is utilised without having to access the swap. 
 
