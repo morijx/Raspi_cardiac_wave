@@ -54,7 +54,7 @@ If your computer is struggeling with the task it might also help to limit the am
 | **Total**                       | **198.15987**                  | **143.535**                            |
 
 
-To perform the test, the swap memory was expanded to the maximum of 2GB. However, as soon as swap was used to perform the calculation, the calculation time increased. This can be seen in example 5. It is therefore recommended to select the parameters in such a way that the maximum is utilised without having to access the swap. 
+To perform the test, the swap memory was expanded to the maximum of 2GB. However, as soon as swap was used to perform the calculation, the calculation time increased. 
 
 ## Use
 
