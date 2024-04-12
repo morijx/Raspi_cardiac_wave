@@ -43,7 +43,7 @@ As it is shown in the table a reduction is clearly visible. From no multiprocess
 
 To enable multiprocessing on the Raspberry Pi, an additional step had to be added. This includes the limitation of the child processes for the individual parallel processes. The limitation prevents more RAM being required than is available. Please note that the Raspebrry Pi used in this work has 8GB of RAM. It will probably also work with less ram, but the child functions must be further reduced. 
 
-Replace the Holostic_multiprocessing with the Holostic_multiprocessing_Pi or add the needed lines of code. If your computer is struggeling with the task it might also help to limit the amount of child processes. 
+If your computer is struggeling with the task it might also help to limit the amount of child processes. 
 
 | Part of the Model                | No parallel processing [s]    | 3 Parallel max 20 child processes [s] |
 |---------------------------------|--------------------------------|----------------------------------------|
