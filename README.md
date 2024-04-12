@@ -33,7 +33,7 @@ The GUI was realised with pyQT5.
 ## Raspberry Pi
 ![image](Images/CaseAssembled.jpg)
 
-Using the Multiprocessing code enabled a reduction in computation time by approximately 27%.
+Using the Multiprocessing code enabled a reduction in computation time by approximately 27% from the 200s on the Pi4 with single processing.
 
 It's important to note that these timings only pertain to the video computation aspect. The overall process still requires more time than the aforementioned processing durations.
 
