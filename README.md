@@ -422,7 +422,6 @@ Raspi_cardiac_wave/
 │   ├── BVP_Analysis_Multiprocessing
 │   ├── Holistic
 │   ├── Holistic_multiprocessing
-│   ├── Holistic_multiprocessing_Pi
 │   └── Main-GUI
 │
 ├── Images/
