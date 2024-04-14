@@ -1,4 +1,4 @@
-![image](Images/Raspberry Pi Cardiac.png )
+![image](Images/RaspberryPiCardiac.png )
 Towards a Portable Device for Cardiac Wave Form Assessment
 
 
