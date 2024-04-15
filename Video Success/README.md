@@ -1,3 +1,4 @@
+![image](../Images/RaspberryPiCardiac.png )
 # Video Success
 
 Using the notebooks in this folder, a classifier was trained to determine whether the video would give good results using the pyVHR pipeline, based on various features. 
