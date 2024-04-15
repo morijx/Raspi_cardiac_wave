@@ -1,4 +1,5 @@
-# MAIN_GUI_PI
+![image](../Images/RaspberryPiCardiac.png )
+# MAIN GUI PI
 
 The files heartrate_monitor, hrcalc and max30102 were not changed and just taken as is form the Kiosk at BMHT ETH Zürich.
 The BVP_Analysis file contains the Pipeline form pyVHR with slight changes to return the BVP for further analysis.
