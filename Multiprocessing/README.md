@@ -1,4 +1,4 @@
-
+![image](../Images/RaspberryPiCardiac.png )
 # Multiprocessing
 Acceleration for Holistic approach by multyprocessing frames parallel.
 
