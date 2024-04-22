@@ -7,7 +7,7 @@ Towards a Portable Device for Cardiac Waveform Assessment
 [![pyVHR 2.0](https://img.shields.io/badge/pyVHR-2.0-blue.svg)](https://pypi.org/project/pyVHR/)
 [![PyQT5 5](https://img.shields.io/badge/PyQT5-5-blue.svg)](https://pypi.org/project/PyQt5/5.8/)
 ![GitHub last commit](https://img.shields.io/github/last-commit/morijx/Raspi_cardiac_wave)
-![GitHub license](https://img.shields.io/github/license/morijx/Raspi_cardiac_wave)
+![GitHub license](https://img.shields.io/github/LICENSE/morijx/Raspi_cardiac_wave)
 ![Maintained NO](https://img.shields.io/badge/Maintained-NO-red.svg)
 ![Multiproccessing YES](https://img.shields.io/badge/Multiprocessing-YES-green.svg)
 ## Summary
